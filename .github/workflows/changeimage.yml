@@ -1,8 +1,8 @@
 name: Update Image By Time of Day
 #on:
 #  schedule:
-#    - cron: '0 12 * * *' # Runs at 08:00 UTC
-#    - cron: '0 23 * * *' # Runs at 20:00 UTC
+#    - cron: '0 12 * * *' # Runs at 12:00 UTC
+#    - cron: '0 23 * * *' # Runs at 23:00 UTC
 
 on: push
 
@@ -16,6 +16,8 @@ jobs:
           HOUR=$(date +%H)
           if [ $HOUR -lt 16 ]; then
             cp BreakfastPanel.png currentoutput.png
+          if [ $HOUR -ge 16 ] && [ $HOUR -lt 20 ]; then
+            cp LunchPanel.png currentoutput.png
           else
             cp DinnerPanel.png currentoutput.png
           fi
