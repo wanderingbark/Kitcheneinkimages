@@ -16,7 +16,7 @@ jobs:
           HOUR=$(date +%H)
           if [ $HOUR -lt 16 ]; then
             cp BreakfastPanel.png currentoutput.png
-          elseif [ $HOUR -ge 16 ] && [ $HOUR -lt 20 ]; then
+          elif [[ $HOUR -ge 16 && $HOUR -lt 20 ]]; then
             cp LunchPanel.png currentoutput.png
           else
             cp DinnerPanel.png currentoutput.png
