@@ -15,9 +15,9 @@ jobs:
         run: |
           HOUR=$(date +%H)
           if [ $HOUR -lt 16 ]; then
-            cp images/breakfastpanel.png currentoutput.png
+            cp breakfastpanel.png currentoutput.png
           else
-            cp images/dinnerpanel.png currentoutput.png
+            cp dinnerpanel.png currentoutput.png
           fi
       - name: Commit changes
         run: |
