@@ -1,0 +1,27 @@
+name: Update Image By Time
+on:
+  schedule:
+    - cron: '0 12 * * *' # Runs at 08:00 UTC
+    - cron: '0 23 * * *' # Runs at 20:00 UTC
+
+jobs:
+  update-image:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Select Image
+        run: |
+          HOUR=$(date +%H)
+          if [ $HOUR -lt 16 ]; then
+            cp images/breakfastpanel.png currentoutput.png
+          else
+            cp images/dinnerpanel.png current.png
+          fi
+      - name: Commit changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add current.jpg
+          git commit -m "Update image based on time"
+          git push
+          echo test, and deploy your project.
