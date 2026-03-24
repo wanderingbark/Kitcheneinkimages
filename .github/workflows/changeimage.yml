@@ -1,6 +1,7 @@
 name: Update Image By Time of Day
-#on:
-#  schedule:
+on:
+  schedule:
+      - cron '0 * * * *' # Runs every hour
 #    - cron: '0 2 * * *' # Runs at 02:00 UTC 20:00 MST
 #    - cron: '0 5 * * *' # Runs at 05:00 UTC 23:00 MST
 #    - cron: '0 12 * * *' # Runs at 12:00 UTC 6:00 MST 
@@ -8,7 +9,7 @@ name: Update Image By Time of Day
 #    - cron: '0 20 * * *' # Runs at 21:00 UTC 14:00 MST
 #    - cron: '0 23 * * *' # Runs at 23:00 UTC 17:00 MST
 
-on: push
+#on: push
 
 jobs:
   update-image:
