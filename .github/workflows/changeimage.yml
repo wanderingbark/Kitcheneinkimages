@@ -1,7 +1,7 @@
 name: Update Image By Time of Day
 on:
   schedule:
-      - cron: '50 * * * *' # Runs every hour
+      - cron: '1 * * * *' # Runs every hour
 #    - cron: '0 2,5,12,17,20,23 * * *' 
 
 #on: push
