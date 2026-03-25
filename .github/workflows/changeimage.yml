@@ -1,10 +1,10 @@
 name: Update Image By Time of Day
 
 on:
-  workflow_dispatch:
+#  workflow_dispatch:
   schedule:
 #      - cron: '13 2,5,13,18,21,23 * * *' 
-      - cron: '*/5 * * * *'
+    - cron: '*/5 * * * *'
 
 jobs:
   update-image:
