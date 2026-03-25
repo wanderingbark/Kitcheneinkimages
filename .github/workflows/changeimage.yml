@@ -1,5 +1,6 @@
 name: Update Image By Time of Day
 on:
+  workflow_dispatch:
   schedule:
 #      - cron: '1 * * * *' # Runs every hour
       - cron: '13 2,5,13,18,21,23 * * *' 
