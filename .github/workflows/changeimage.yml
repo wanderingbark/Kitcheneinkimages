@@ -32,7 +32,7 @@ jobs:
           elif [ $HOUR -lt 23 ]; then
             cp SnackPanel.png currentoutput.png
           else
-            cp Dinnerpanel.png currentoutput.png
+            cp DinnerPanel.png currentoutput.png
           fi
       - name: Commit changes
         run: |
