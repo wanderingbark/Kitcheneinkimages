@@ -3,7 +3,8 @@ name: crontest
 on:
   workflow_dispatch:
   schedule:
-    - cron: '*/5 * * * *'  # Runs every 5 minutes for testing
+    - cron: '12 7,11,14,17 * * *'
+      timezone: "America/Edmonton"
 
 jobs:
   test-cron:
