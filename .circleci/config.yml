@@ -24,7 +24,7 @@ jobs:
           name: Getting the Code
           command: |
             ls -al
-            echo '^^^Your repo files^^^'image-copy-test:
+            echo '^^^Your repo files^^^'
     
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/guides/orchestrate/workflows/ & https://circleci.com/docs/reference/configuration-reference/#workflows
