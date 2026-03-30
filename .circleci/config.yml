@@ -19,7 +19,7 @@ jobs:
       # Checkout the code as the first step.
       - checkout
       - run:
-          name: "Image Copy Test"
+          name: "Image Copy"
           command: "cp DinnerPanel.png testoutput.png"
 
 # Orchestrate jobs using workflows
@@ -28,4 +28,4 @@ workflows:
   image-copy-test: # This is the name of the workflow, feel free to change it to better match your workflow.
     # Inside the workflow, you define the jobs you want to run.
     jobs:
-      - image-copy
+      - image-copy-test
