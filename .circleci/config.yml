@@ -5,16 +5,18 @@ version: 2.1
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/guides/orchestrate/jobs-steps/#jobs-overview & https://circleci.com/docs/reference/configuration-reference/#jobs
 jobs:
-  Hello-World:
+  Say-Date:
     docker:
       - image: cimg/base:current
     steps:
+      - checkout
       - run:
-          name: Saying Hello
-          command: |
-            echo 'Hello World!'
-            echo 'This is the delivery pipeline'
-  # fetching code from the repo
+          name: "Set DATETIME variable"
+          # The `date +%Y%m%d.%H%M` formats the output like '20260203.1030'
+          command: echo "export DATETIME='date +%H'" >> $BASH_ENV
+      - run:
+          name: "Echo the set variable"
+          command: echo "The current datetime is $DATETIME"
   Fetch-Code:
     docker:
       - image: cimg/base:current
@@ -33,7 +35,7 @@ jobs:
       - run:
           name: Renewing Panel Image
           command: |
-            cp DinnerPanel.png testoutput.png
+            cp LunchPanel.png testoutput.png
       - add_ssh_keys:
           fingerprints:
             - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO5Gs08GZMcQUrtKG+0HxvHB9TLm8YQX7BXcyaaMCZew wanderingbark@gmail.com"
@@ -52,6 +54,6 @@ workflows:
   Test1: # This is the name of the workflow, feel free to change it to better match your workflow.
     # Inside the workflow, you define the jobs you want to run.
     jobs:
-      - Hello-World
+      - Say-Date
       - Fetch-Code
       - Renew-Image
