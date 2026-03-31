@@ -17,7 +17,7 @@ jobs:
             echo "export JOB_HOUR=$CURRENT_HOUR" >> $BASH_ENV
       - run:
           name: "Use the CURRENT_HOUR variable"
-          command: echo "The current hour is: $JOB_HOUR"
+          command: echo "$JOB_HOUR"
   Fetch-Code:
     docker:
       - image: cimg/base:current
