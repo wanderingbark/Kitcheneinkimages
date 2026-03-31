@@ -13,10 +13,10 @@ jobs:
       - run:
           name: "Set DATETIME variable"
           # The `date +%Y%m%d.%H%M` formats the output like '20260203.1030'
-          command: echo "export DATETIME='date +%H'" >> $BASH_ENV
+          command: HOUR=$(date +%H)
       - run:
           name: "Echo the set variable"
-          command: echo "The current datetime is $DATETIME"
+          command: echo "The current datetime is $HOUR"
   Fetch-Code:
     docker:
       - image: cimg/base:current
