@@ -25,6 +25,30 @@ jobs:
           command: |
             ls -al
             echo '^^^Your repo files^^^'
+  Renew-Image: 
+    docker:
+      - image: cimg/base:current
+    steps:
+      - run:
+          name: Renewing Panel Image
+          command: |
+            cp DinnerPanel.png testoutput.png
+  Commit-Changes:
+    docker:
+      - image: cimg/base:current
+    steps:
+      - checkout
+        - add_ssh_keys:
+          fingerprints:
+            - "+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU>"
+      - run:
+          name: Committing Changes to Repo
+          command: |
+            git config user.email "wanderingbark@gmail.com"
+            git config user.name "CircleCI Job"
+            git add .
+            git commit --allow-empty -m "Automatic commit from CircleCI [skip ci]"
+            git push origin HEAD
     
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/guides/orchestrate/workflows/ & https://circleci.com/docs/reference/configuration-reference/#workflows
