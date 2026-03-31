@@ -12,13 +12,13 @@ jobs:
       - checkout
       - run:
           name: "Set the current hour as an environment variable"
-          # The 'date +%H' command captures the hour (24-hour format)
-          # The '>> $BASH_ENV' appends it so subsequent steps can use it
-          command: echo 'export CURRENT_HOUR=`date +%H`' >> $BASH_ENV
+          command: |
+            CURRENT_HOUR=$(date +%H)
+            echo "export JOB_HOUR=$CURRENT_HOUR" >> $BASH_ENV
       - run:
           name: "Use the CURRENT_HOUR variable"
           # The variable is now available for use in subsequent steps
-          command: echo "The current hour is: $CURRENT_HOUR"
+          command: echo "The current hour is: $JOB_HOUR"
   Fetch-Code:
     docker:
       - image: cimg/base:current
