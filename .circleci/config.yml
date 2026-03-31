@@ -34,11 +34,6 @@ jobs:
           name: Renewing Panel Image
           command: |
             cp DinnerPanel.png testoutput.png
-  Commit-Changes:
-    docker:
-      - image: cimg/base:current
-    steps:
-      - checkout
       - add_ssh_keys:
           fingerprints:
             - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO5Gs08GZMcQUrtKG+0HxvHB9TLm8YQX7BXcyaaMCZew wanderingbark@gmail.com"
@@ -60,4 +55,3 @@ workflows:
       - Hello-World
       - Fetch-Code
       - Renew-Image
-      - Commit-Changes
