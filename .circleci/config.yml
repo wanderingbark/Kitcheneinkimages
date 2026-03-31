@@ -29,6 +29,7 @@ jobs:
     docker:
       - image: cimg/base:current
     steps:
+      - checkout
       - run:
           name: Renewing Panel Image
           command: |
