@@ -40,7 +40,7 @@ jobs:
       - checkout
         - add_ssh_keys:
           fingerprints:
-            - "+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU>"
+            - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO5Gs08GZMcQUrtKG+0HxvHB9TLm8YQX7BXcyaaMCZew wanderingbark@gmail.com"
       - run:
           name: Committing Changes to Repo
           command: |
