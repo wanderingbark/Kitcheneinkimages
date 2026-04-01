@@ -43,7 +43,6 @@ jobs:
             else
               cp DinnerPanel.png currentoutput.png
             fi
-            cp LunchPanel.png testoutput.png
       - add_ssh_keys:
           fingerprints:
             - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO5Gs08GZMcQUrtKG+0HxvHB9TLm8YQX7BXcyaaMCZew wanderingbark@gmail.com"
