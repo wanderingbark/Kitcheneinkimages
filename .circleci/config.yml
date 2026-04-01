@@ -13,21 +13,12 @@ jobs:
       - run:
           name: "Set the current hour as an environment variable"
           command: |
-            CURRENT_HOUR=$(date +%H)
-            echo "export JOB_HOUR=$CURRENT_HOUR" >> $BASH_ENV
+            TEST_HOUR=$(date +%H)
+            echo "export JOB_HOUR=$TEST_HOUR" >> $BASH_ENV
       - run:
-          name: "Use the CURRENT_HOUR variable"
+          name: "Use the TEST_HOUR variable"
           command: echo "$JOB_HOUR"
-  Fetch-Code:
-    docker:
-      - image: cimg/base:current
-    steps:
-      - checkout
-      - run:
-          name: Getting the Code
-          command: |
-            ls -al
-            echo '^^^Your repo files^^^'
+  
   Renew-Image: 
     docker:
       - image: cimg/base:current
@@ -36,6 +27,22 @@ jobs:
       - run:
           name: Renewing Panel Image
           command: |
+            CURRENT_HOUR=$(date +%H)
+            if [ $CURRENT_HOUR -lt 2 ]; then
+              cp DinnerPanel.png currentoutput.png
+            elif [ $CURRENT_HOUR -lt 5 ]; then
+              cp LateNightSnackPanel.png currentoutput.png
+            elif [ $CURRENT_HOUR -lt 13 ]; then
+              cp BedTimePanel.png currentoutput.png
+            elif [ $CURRENT_HOUR -lt 18 ]; then
+              cp BreakfastPanel.png currentoutput.png
+            elif [ $CURRENT_HOUR -lt 21 ]; then
+              cp LunchPanel.png currentoutput.png
+            elif [ $CURRENT_HOUR -lt 23 ]; then
+              cp SnackPanel.png currentoutput.png
+            else
+              cp DinnerPanel.png currentoutput.png
+            fi
             cp LunchPanel.png testoutput.png
       - add_ssh_keys:
           fingerprints:
@@ -56,5 +63,4 @@ workflows:
     # Inside the workflow, you define the jobs you want to run.
     jobs:
       - Say-Date
-      - Fetch-Code
       - Renew-Image
