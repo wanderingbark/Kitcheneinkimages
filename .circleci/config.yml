@@ -28,6 +28,7 @@ jobs:
           name: Renewing Panel Image
           command: |
             CURRENT_HOUR=$(date +%H)
+            echo "$CURRENT_HOUR"
             if [ $CURRENT_HOUR -lt 2 ]; then
               cp DinnerPanel.png currentoutput.png
             elif [ $CURRENT_HOUR -lt 4 ]; then
@@ -61,5 +62,4 @@ workflows:
   Test1: # This is the name of the workflow, feel free to change it to better match your workflow.
     # Inside the workflow, you define the jobs you want to run.
     jobs:
-      - Say-Date
-      - Renew-Image
+        - Renew-Image
