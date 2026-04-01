@@ -30,11 +30,11 @@ jobs:
             CURRENT_HOUR=$(date +%H)
             if [ $CURRENT_HOUR -lt 2 ]; then
               cp DinnerPanel.png currentoutput.png
-            elif [ $CURRENT_HOUR -lt 5 ]; then
+            elif [ $CURRENT_HOUR -lt 4 ]; then
               cp LateNightSnackPanel.png currentoutput.png
             elif [ $CURRENT_HOUR -lt 13 ]; then
               cp BedTimePanel.png currentoutput.png
-            elif [ $CURRENT_HOUR -lt 18 ]; then
+            elif [ $CURRENT_HOUR -lt 17 ]; then
               cp BreakfastPanel.png currentoutput.png
             elif [ $CURRENT_HOUR -lt 20 ]; then
               cp LunchPanel.png currentoutput.png
