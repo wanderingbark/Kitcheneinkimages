@@ -33,7 +33,7 @@ jobs:
               cp DinnerPanel.png currentoutput.png
             elif [ $CURRENT_HOUR -lt 4 ]; then
               cp LateNightSnackPanel.png currentoutput.png
-            elif [ $CURRENT_HOUR -lt 13 ]; then
+            elif [ $CURRENT_HOUR -lt 12 ]; then
               cp BedTimePanel.png currentoutput.png
             elif [ $CURRENT_HOUR -lt 17 ]; then
               cp BreakfastPanel.png currentoutput.png
